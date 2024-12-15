@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Navbar</title>
+    <style>
+        /* Style dasar untuk navbar */
+        body {
+        font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+          "Lucida Sans", Arial, sans-serif;
+        margin: 0%;
+      }
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            text-align: left;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 20px; /* Diperbesar jarak untuk memperluas area klik */
+            padding: 10px 15px; /* Tambahkan padding untuk memperluas area hover */
+            text-decoration: none;
+            font-weight: bold;
+            position: relative;
+            transition: background-color 0.3s; /* Transisi untuk warna */
+        }
+
+        /* Efek hover untuk item navbar dan submenu */
+        nav a:hover, .submenu a:hover, .submenu2 a:hover, .submenu3 a:hover {
+            background-color: #777; /* Ubah latar belakang saat hover */
+            color: #fff; /* Ubah warna teks saat hover */
+        }
+
+        /* Container utama untuk menu */
+        .menu {
+            display: inline-block;
+            position: relative;
+        }
+
+        /* Submenu */
+        .submenu {
+            visibility: hidden;
+            opacity: 0;
+            position: absolute;
+            background-color: #444;
+            padding: 10px;
+            top: 100%;
+            left: 0;
+            min-width: 200px;
+            z-index: 1;
+            transition: visibility 0s linear 0.3s, opacity 0.3s;
+        }
+
+        /* Submenu level kedua */
+        .submenu2 {
+            visibility: hidden;
+            opacity: 0;
+            position: absolute;
+            background-color: #555;
+            left: 100%;
+            top: 0;
+            min-width: 200px;
+            padding: 10px;
+            z-index: 2;
+            transition: visibility 0s linear 0.3s, opacity 0.3s;
+        }
+
+        /* Submenu level ketiga */
+        .submenu3 {
+            visibility: hidden;
+            opacity: 0;
+            position: absolute;
+            background-color: #666;
+            left: 100%;
+            top: 0;
+            min-width: 200px;
+            padding: 10px;
+            z-index: 3;
+            transition: visibility 0s linear 0.3s, opacity 0.3s;
+        }
+
+        /* Tampilkan submenu saat hover */
+        .menu:hover .submenu,
+        .submenu-item:hover .submenu2,
+        .submenu2-item:hover .submenu3 {
+            visibility: visible;
+            opacity: 1;
+            transition-delay: 0s;
+        }
+
+        /* Submenu a link style */
+        .submenu a, .submenu2 a, .submenu3 a {
+            color: white;
+            display: block;
+            padding: 5px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header Navigasi -->
+<nav>
+    <a href="#home">Home</a>
+    <a href="#kamar">Kamar</a>
+
+    <!-- Menu bertingkat untuk "Fasilitas" -->
+    <div class="menu">
+        <a href="#fasilitas">Fasilitas</a>
+        <div class="submenu">
+            <a href="#petualangan-alam">Petualangan Alam</a>
+            <div class="submenu-item">
+                <a href="#kolam-renang">Kolam Renang</a>
+                <!-- Submenu level kedua untuk Kolam Renang -->
+                <div class="submenu2">
+                    <a href="#sumber-air-panas">Sumber Air Panas</a>
+                    <div class="submenu2-item">
+                        <a href="#kolam-anak-dewasa">Kolam Renang Anak & Dewasa</a>
+                        <!-- Submenu level ketiga untuk Kolam Renang Anak & Dewasa -->
+                        <div class="submenu3">
+                            <a href="#reguler">Reguler</a>
+                            <a href="#premium">Premium</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a href="#pusat-kebugaran">Pusat Kebugaran</a>
+            <a href="#ruang-rapat">Ruang Rapat</a>
+        </div>
+    </div>
+
+    <a href="#pesan">Pesan Sekarang</a>
+</nav>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Best Hotel</title>
+    <style>
+      body {
+        font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+          "Lucida Sans", Arial, sans-serif;
+        margin: 0%;
+      }
+      /* Styling untuk header */
+      .header{
+            background-color:black;
+            color: white;
+            text-align: left; /* Align text to the left */
+            position: relative;
+            display: flex;
+        }
+        .header h1 {
+            margin-left: 10px;
+            margin-top: 40px;
+            font-size: 24px;
+            display: inline-block;
+        }
+        .header .logo img {
+            top: 0px;
+            height: 100px;
+            flex: 1;
+        }
+        .header .hotel{
+            height: 120px;
+            margin: 0;
+            width: auto;
+            text-align: right;
+            flex: 1;
+        }
+
+        .header .hotel img{
+            object-fit: contain;
+        }
+        .header title {
+            flex: 1;
+            height: 120px;
+            padding-top: 50px;
+            text-align: right;
+        }
+
+      /* Gaya untuk header navigasi */
+      .navbar{
+        position: relative;
+        z-index: 1000;
+      }
+
+      /* Kontainer utama untuk layout grid */
+      #container {
+        display: grid;
+        grid-template-columns: 1fr 3fr; /* Sidebar kiri 1 bagian, konten utama 3 bagian */
+        height: calc(100vh - 120px); /* Mengurangi tinggi header dan navigasi */
+        padding-bottom: 40px;
+        margin-top: -305px;
+      }
+      iframe{
+        border: none !important;
+      }
+      /* Style untuk iframe */
+      .iframe-container {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+
+      /* Sidebar kiri untuk video */
+      #sidebar {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        background-color: #555;
+        padding: 10px;
+      }
+
+      /* Gaya untuk galeri gambar */
+      #gallery {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* 3 kolom di konten utama */
+        gap: 10px;
+        padding: 20px;
+      }
+
+      /* Style setiap gambar di galeri */
+      .gallery-item {
+        width: 100%;
+        height: 200px;
+        border: 1px solid #ccc;
+        overflow: hidden;
+      }
+      .footer {
+        background-color: black;
+        color: white;
+        text-align: center; /* Pastikan teks diatur ke tengah */
+        position: relative;
+        display: flex;
+        justify-content: center; /* Menyelaraskan konten ke tengah */
+        padding: 5px; /* Tambahkan padding jika perlu untuk ruang di sekitar teks */
+      }
+
+    </style>
+  </head>
+  <body>
+    <!-- Header dengan Logo dan Judul -->
+    <div class="header">
+            
+      <div class="logo">
+          <img src="gambar/logo.jpg" alt="Logo" />
+      </div>
+      <div class="title">
+          <h1>Queen Best Hotel</h1>
+      </div>
+      <div class="hotel">
+        <img class="hotel" src="gambar/kamar deluxe.jpg" alt="Hotel Logo" />     
+      </div>
+    </div>
+
+  <div>
+    <!-- Header Navigasi -->
+    <div class="navbar" name="atas">
+      <iframe src="menubertingkat.html" style="width: 100%; height: 350px;"></iframe>
+    </div>
+
+    <!-- Kontainer Utama -->
+    <div id="container">
+      <!-- Sidebar Kiri dengan iframe Video -->
+      <div id="sidebar">
+        <iframe width="320" height="200" src="https://www.youtube.com/embed/5jsAsamJeWE?si=Ztp9uxzAGwmlPp8Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe width="320" height="200" src="https://www.youtube.com/embed/VohAVMNkZdY?si=qnBZHl4kyAPb-pcY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe width="320" height="200" src="https://www.youtube.com/embed/s-ojg9fb8_A?si=rx4Sc2OJyVHjJzfD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+
+      <!-- Konten Utama dengan Galeri Gambar -->
+      <div id="gallery">
+        <iframe class="gallery-item" src="foto_kamar.jpg" title="Kamar 1" scrolling="no" style="overflow: hidden;"></iframe>
+        <iframe class="gallery-item" src="foto_kamar2.jpg" title="Kamar 2" scrolling="no" style="overflow: hidden;"></iframe>
+        <iframe class="gallery-item" src="foto_kamar3.jpg" title="Kamar 3" scrolling="no" style="overflow: hidden;"></iframe>
+        <iframe class="gallery-item" src="foto_kamar4.jpg" title="Kamar 4" scrolling="no" style="overflow: hidden;"></iframe>
+        <iframe class="gallery-item" src="foto_kamar5.jpg" title="Kamar 5" scrolling="no" style="overflow: hidden;"></iframe>
+        <iframe class="gallery-item" src="foto_kamar6.jpg" title="Kamar 6" scrolling="no" style="overflow: hidden;"></iframe>
+        <iframe class="gallery-item" src="foto_kamar7.jpg" title="Kamar 7" scrolling="no" style="overflow: hidden;"></iframe>
+        <iframe class="gallery-item" src="foto_kamar8.jpg" title="Kamar 8" scrolling="no" style="overflow: hidden;"></iframe>
+        <iframe class="gallery-item" src="foto_kamar9.jpg" title="Kamar 9" scrolling="no" style="overflow: hidden;"></iframe>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>&copy; 2024 Queen Best Hotel</p>
+    </div>
+
+  </body>
+</html>
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Gambar 1</title>
+</head>
+<body>
+    <img src="gambar/kamar deluxe.jpg" alt="Gambar 1" style="width:100%; height:auto;">
+</body>
+</html>
